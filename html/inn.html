@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8"> 
+        <title>Interieur magasin</title>
+		<link rel="stylesheet" href="./css/visuel_magasin.css" type="text/css">
+    </head>
+
+    <body class="body">
+		{erreur}
+		<div class="container">
+			<div class="money">Pièces: {money}$</div>
+			<div class="life">Life: {life}PV</div>
+		</div>
+        <div class='grille' id = 'grille'>
+            {land}
+        </div>
+
+		<script>
+			function url(){
+				document.getElementById('manger').innerHTML = '<form action="/req_shop" method="GET"><label id="texte1">:Sanglier rôti 15$ + 50pv</label><button id="bouton3" name="action" value="manger">Manger</button></form>';
+			}
+			function boire(){
+				document.getElementById('boire').innerHTML = '<form action="/req_shop" method="GET"><label id="texte1">Whisky: 7$ + 20pv</label><button id="bouton4" name="action" value="boire">Boire</button></form>';
+			}
+			function save(){
+				document.getElementById('save').innerHTML = '<form action="req_shop" method="GET"><label id="texte_save">Choisissez la sauvegarde</label><button id="bouton1" name="action" value="save1">Save1</button><button id="bouton2" name="action" value="save2">Save2</button></form>';
+			}
+            window.addEventListener("keydown", function (event) {
+                let newUrl = null;
+                console.log(event.keyCode);
+				let sprite = document.querySelector(".perso");
+                if (event.keyCode === 90 || event.keyCode === 38) {
+					console.log('oui');
+					sprite.classList.add('perso_up');
+                    newUrl = "http://localhost:5000/move_inn?action=Haut";
+                } else if(event.keyCode === 83 || event.keyCode === 40){
+					sprite.classList.add('perso_down');
+                    newUrl = "http://localhost:5000/move_inn?action=Bas";
+                } else if(event.keyCode === 68 || event.keyCode === 39 ){
+					sprite.classList.add('perso_right');
+                    newUrl = "http://localhost:5000/move_inn?action=Droite";
+                } else if(event.keyCode === 81 || event.keyCode === 37 ){
+					sprite.classList.add('perso_left');
+                    newUrl = "http://localhost:5000/move_inn?action=Gauche";
+				} else if(event.keyCode === 32){
+					newUrl = "http://localhost:5000/move_inn?action=Interaction";
+				}
+                if(newUrl !== null){
+                    event.preventDefault();
+                    fetch(newUrl)
+                        .then(function (test) { return test.json(); })
+                        .then(function (test) {
+                            // Récupération de l'élément DOM
+                            if(test.type === 'refresh'){
+                                 function timed (){setTimeout(myTime, 299);
+                                console.log("ok");
+                               }
+                               timed();
+                                function myTime(){
+                                    document.getElementById("grille").innerHTML = test.value;
+                                }
+                            } else if(test.type === 'update') {
+                                window.location = test.value;
+                            }
+                    
+                        });
+				 	}
+            });
+        </script>
+	</body>
+</html>
