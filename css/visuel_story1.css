@@ -1,0 +1,23 @@
+body {
+    background-color: black;
+	}
+.container {
+	position: absolute;
+	top: 10%;
+    left: 0%;
+	width: 1360px;
+	height: 570px;
+	background-image: url('/maps/story1.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+#bouton{
+	margin: 5px;
+	border-radius: 5px;
+	box-shadow: rgb(176, 176, 176);
+	font-size:14px;
+	font-family: "Algerian";
+	width: 85px;
+	height: 35px;
+}

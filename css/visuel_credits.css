@@ -1,0 +1,16 @@
+body {
+    background-image: url('/maps/credits.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+	height:80%;
+}
+#bouton{
+    margin: 6px;
+    border-radius: 5px;
+    box-shadow: rgb(176, 176, 176);
+    font-size: 15px;
+    font-family: "Algerian";
+    width: 100px;
+    height: 125px;
+}
+

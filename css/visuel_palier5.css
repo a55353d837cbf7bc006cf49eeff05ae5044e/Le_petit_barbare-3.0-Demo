@@ -1,0 +1,19 @@
+body {
+    background-color: black;
+	}
+.container {
+	position: absolute;
+	width: 98%;
+	height: 98%;
+	background-image: url('/maps/niveau5.png');
+	background-repeat: no-repeat;
+}
+#bouton{
+	margin: 5px;
+	border-radius: 5px;
+	box-shadow: rgb(176, 176, 176);
+	font-size:14px;
+	font-family: "Algerian";
+	width: 85px;
+	height: 35px;
+}
