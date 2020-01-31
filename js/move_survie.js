@@ -199,7 +199,7 @@ const move_survie = function(req, res, query, bfld, wave, oppo, heros, niveau, l
                 if(query.arme === "arc" && perso.arc >= 1){
                     damage = Math.floor(Math.random()*25) + 45;
 					if(at ===0){
-						target.life = targer.life - damage;
+						target.life = target.life - damage;
 						at = 1;
 					}
 				}
@@ -236,7 +236,7 @@ const move_survie = function(req, res, query, bfld, wave, oppo, heros, niveau, l
 			perso.potion = perso.potion + 1;
 		}
 		
-		caisse = Math.floor(Math.random()*725) + 1;
+		caisse = Math.floor(Math.random()*620) + 1;
 		console.log("caisse aléatoire = " + caisse);
 		if(caisse >= 98 && caisse < 102){
 			perso.epee_2 = perso.epee_2 + 1;

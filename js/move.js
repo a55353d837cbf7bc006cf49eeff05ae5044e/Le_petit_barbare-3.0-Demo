@@ -198,7 +198,7 @@ const move = function(req, res, query, bfld, wave, oppo, heros, niveau, life_ene
                 if(query.arme === "arc" && perso.arc >= 1){
                     damage = Math.floor(Math.random()*25) + 45;
 					if(at ===0){
-						target.life = targer.life - damage;
+						target.life = target.life - damage;
 						at = 1;
 					}
 				}
